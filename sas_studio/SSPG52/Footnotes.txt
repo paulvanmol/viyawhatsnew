@@ -1,0 +1,8 @@
+footnote1 "Report Created by "; /*F1*/
+footnote2 "Generated on %sysfunc(datetime(),dateampm.)";/*F2*/
+
+/*F1. This footnote1 statement prints the text specified in the first line at the bottom of the procedure output.*/
+/*F2. This footnote2 statement uses macro functions to print the date and time the procedure was executed and 
+adds it to the second line at the bottom of the procedure.*/  
+
+
