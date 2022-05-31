@@ -1,0 +1,3 @@
+01;DAY 1
+02;DAY 1;The subject had a fever of 39.6°C.
+02;DAY 2;You can earn €2500,- when you participate in a study
