@@ -45,7 +45,9 @@
 	OPTIONS SET=CLASSPATH "&CP_orig_classpath";
 %mend;
 %init_classpath_update;
-%add_to_classpath(/home/student/viyawhatsnew/sdmx_query/SDMX.jar);
+%let homedir=%sysget(HOME); 
+%let path=&homedir;
+%add_to_classpath(&path/viyawhatsnew/sdmx_query/SDMX.jar);
 
 /*
 %reset_classpath;

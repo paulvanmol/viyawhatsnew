@@ -20,7 +20,7 @@ libname lib "&path/SDMX/lib";
 /*  method="get" out=out; */
 /*  *debug level=3; */
 /* run; */
-
+/*
 download the sassdmx.tar.gz files
 filename out "&path/SDMX/lib/sassdmx.tar.gz";
 proc http
@@ -28,7 +28,7 @@ proc http
  method="get" out=out;
  *debug level=3;
 run;
-
+*/
 /*Add the downloaded jar file to the classpath of your sas session*/
 /*in SASV9.CFG use: */
 /*-SET CLASSPATH "&path/SDMX/lib/SDMX.jar"; */
