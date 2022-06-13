@@ -1,3 +1,6 @@
+/*SAS Communities Article: Acccessing Social Media from SAS Viya with embedded CDATA JDBC drivers
+https://communities.sas.com/t5/SAS-Communities-Library/Accessing-Social-Media-data-and-more-from-SAS-Viya-with-embedded/ta-p/805117
+*/
 options sastrace="d,,," sastraceloc=saslog nostsuffix ;
 libname test jdbc url="jdbc:dummy" ;
 
