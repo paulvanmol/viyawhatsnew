@@ -1,6 +1,9 @@
 /* Test PC files connectivity. */
-%let home=%sysget($home); 
-%leth path=&home/viyawhatsnew/whatsnew;
+%let home=%sysget(HOME); 
+%let path=/workshop/wnvy;
+
+options dlcreatedir; 
+libname wnvy "&path"; 
 /* Export from SAS to Excel file. */
 proc export
   data=sashelp.prdsale
@@ -37,6 +40,10 @@ run;
    load and save an XLSX file
 */
 CAS mysess;
+* drop source caslib;
+proc cas;
+table.dropcaslib caslib="myxlsx" quiet=true;
+quit;
 caslib myxlsx 
        type=path
        path="&path"; /*Directory location*/
