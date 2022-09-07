@@ -1,5 +1,5 @@
 /* %let path=C:\workshop\UTF8Encoding\orion; */
-%let path=/greenmonthly-export/ssemonthly/homes/paul.van.mol@sas.com/utf8encoding/orion;
+%let path=/home/student/viyawhatsnew/migrate_data/orion;
 options dlcreatedir nofmterr; 
 libname ordet "&path/utf8_ordetail" ; 
 libname orfmt "&path/utf8_orfmt"; 
