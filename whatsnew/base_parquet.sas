@@ -17,16 +17,19 @@ Introduction
 
 How to assign a Parquet library? You just need to add the parquet engine keyword to your libname instruction that points to a directory. Then you will be able to start reading and writing Parquet files from/to that directory.
 */
+/* Test PC files connectivity. */
+%let home=%sysget(HOME); 
+%let path=&home;
  
-
-libname pqt parquet "&path/viyawhatsnew/data/parquet" ;
+options dlcreatedir; 
+libname pqt parquet "&path/whatsnew/data" ;
  
 /*
 This libname statement also supports options to control how to handle different extensions as well as Parquet files available as directories (exactly like the ORC engine) for reading. On the other hand, SAS creates a Parquet data set only as a single file.
 */
  
 
-libname pqt parquet "&path/viyawhatsnew/data/parquet" directories_as_data=yes file_name_extension=_none_ ;
+libname pqt parquet "&path/whatsnew/data" directories_as_data=yes file_name_extension=_none_ ;
  
 /*
 By default, the engine supports "parq", "pq" and "parquet" as extensions, and SAS uses "parquet" when writing new files. The file_name_extension option allows to customize it. You can then easily create a Parquet table:
@@ -65,7 +68,7 @@ Another advantage of Parquet is its universality. Many tools can now read and wr
 */
  
 
-libname pqt parquet "&path/viyawhatsnew/data/parquet" directories_as_data=yes ;
+libname pqt parquet "&path/whatsnew/data" directories_as_data=yes ;
 
 /* userdata3.parquet is a single parquet file */
 proc freq data=pqt.userdata3 ;

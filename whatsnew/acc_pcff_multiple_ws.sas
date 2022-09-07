@@ -1,4 +1,4 @@
-%let xlsDir = c:\temp;
+%let xlsDir = /home/student/output;
 
 proc export
   data=sashelp.cars
