@@ -10,7 +10,7 @@
  * yourPath: location where you stored all examples 
  * 
 */
- %let localProjectPath = /greenmonthly-export/ssemonthly/homes/paul.van.mol@sas.com/utf8encoding ;
+ %let localProjectPath = /home/student/viyawhatsnew/migrate_data;
  
 
 %put &=localProjectPath;
