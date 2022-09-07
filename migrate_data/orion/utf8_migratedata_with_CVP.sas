@@ -1,6 +1,6 @@
 proc options option=encoding; 
 run; 
-%let path=/greenmonthly-export/ssemonthly/homes/paul.van.mol@sas.com/utf8encoding/orion;
+%let path=/home/student/viyawhatsnew/migrate_data/orion;
 libname ordetl1 cvp "&path/latin1_ordetail"  CVPFORMATWIDTH=YES; 
 libname _ctrl cvp "&path/_ctrl"; 
 
