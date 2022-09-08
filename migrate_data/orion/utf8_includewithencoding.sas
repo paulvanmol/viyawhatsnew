@@ -1,8 +1,8 @@
-%let localprojectpath=/greenmonthly-export/ssemonthly/homes/paul.van.mol@sas.com/utf8encoding;
-%include "&localprojectpath/sascode/20_read_external_file.sas" 
+%let localprojectpath=/home/student/viyawhatsnew/migrate_data;
+%include "&localprojectpath/demo/20_read_external_file.sas" 
 	/encoding=wlatin1 source2;
 
-filename extfile "&localprojectpath/data/ encoding=wlatin1;
+filename extfile "&localprojectpath/data/" encoding=wlatin1;
 data contacts;
 infile extfile;
 length name $ 20 first $ 20;

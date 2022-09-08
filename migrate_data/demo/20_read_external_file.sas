@@ -3,7 +3,7 @@
  *
  */
 data code1;
-  infile "&localProjectPath/sascode/example_ansi.sas" truncover 
+  infile "&localProjectPath/demo/example_ansi.sas" truncover 
 	/*encoding=wlatin1 */ 
 ;
   input @1 codeLine $1024.;
@@ -20,7 +20,7 @@ run;
  * to the current encoding
  */
 data code2;
-  infile "&localProjectPath/sascode/example_utf8.sas"
+  infile "&localProjectPath/demo/example_utf8.sas"
     truncover
 /*    encoding='utf-8'*/
   ;
@@ -37,7 +37,7 @@ run;
  * no encoding= option necessary, as long as chars fit into current encdoging
  */
 data code3;
-  infile "&localProjectPath/sascode/example_utf8_bom.sas" truncover;
+  infile "&localProjectPath/demo/example_utf8_bom.sas" truncover;
   input @1 codeLine $1024.;
 run;
 

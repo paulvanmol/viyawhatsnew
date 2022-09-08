@@ -1,4 +1,4 @@
-libname how "d:\workshop\how"; 
+libname how "&localProjectPath/data"; 
 data how.customers; 
 infile cards dlm=',' ; 
 input customer_name:$15. customer_country: $2.; 
@@ -8,7 +8,7 @@ Bruno Müller, DE
 Oliver Fußling, DE
 ;
 run; 
-proc print data=customers; 
+proc print data=how.customers; 
 run; 
 options cashost="server.demo.sas.com" casport=5570; 
 cas mysession; 

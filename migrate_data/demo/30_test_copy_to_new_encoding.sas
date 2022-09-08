@@ -1,20 +1,21 @@
 /* encoding should be wlatin1 */
-data have;
+libname _latin1 "&path/data/latin1" outencoding='wlatin1';
+data _latin1.have (encoding=wlatin1);
   text = "Die süße Hündin läuft in die Höhle des Bären";
   lastname = "Müller";
   firstName = "René";
 run;
 
-proc contents data=have;
+proc contents data=_latin1.have;
 run;
 
 /* should fail */
 data want1(encoding=utf8);
-  set have;
+  set _latin1.have;
 run;
 
 /* should succeed, with variable length being increased */
-%copy_to_new_encoding(have,want2,utf8);
+%copy_to_new_encoding(_latin1.have,want2,utf8);
 
 
 title "converted want2 data set";

@@ -1,4 +1,4 @@
-%let path=/greenmonthly-export/ssemonthly/homes/paul.van.mol@sas.com/utf8encoding; 
+%let path=/home/student/viyawhatsnew/migrate_data; 
 options dlcreatedir; 
 libname _latin1 "&path/data/latin1" outencoding='wlatin1';
  

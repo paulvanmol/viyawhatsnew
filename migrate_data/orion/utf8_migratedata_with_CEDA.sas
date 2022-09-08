@@ -1,5 +1,5 @@
 options nofmterr; 
-%let path=/greenmonthly-export/ssemonthly/homes/paul.van.mol@sas.com/utf8encoding/orion;
+%let path=/home/student/viyawhatsnew/migrate_data/orion;
 libname ordetl1 base "&path/latin1_ordetail"  ; 
 
 proc options option=encoding; 
