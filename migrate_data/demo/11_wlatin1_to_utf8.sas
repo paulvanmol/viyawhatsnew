@@ -1,4 +1,4 @@
-%let path=/home/student/viyawhatsnew/migrate_data; 
+%let path=&localprojectpath; 
 options dlcreatedir; 
 libname _latin1 "&path/data/latin1" outencoding='wlatin1';
  
@@ -13,7 +13,7 @@ proc contents data=_latin1.T01_LATIN1;
 run;  
 proc print data=_latin1.t01_latin1; 
 run; 
-* A exécuter sur SASApp-UTF8;   
+* Execute on SASApp-UTF8;   
 options dlcreatedir; 
 libname _latin1 "&path/data/latin1" inencoding='wlatin1'; 
 *libname _latin1 CVP "&path/data/latin1" inencoding='wlatin1'; 
