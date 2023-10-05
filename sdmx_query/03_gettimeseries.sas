@@ -253,5 +253,35 @@
 	
 %mend gettimeseries;
 
+%macro copytimeseries(tskey=NAMA_10_GDP/A.CLV_I10.B1GQ,outlib=work,metadata=1);
+%let seriesname=%sysfunc(compress(%scan(&tskey,1,%str(+)),./));
+data &outlib..&seriesname; 
+set sdmxdata; 
+run; 
+%if &metadata=1 %then %do; 
+data &outlib..&seriesname.meta; 
+set sdmxmetadata; 
+run; 
+data &outlib..&seriesname.ometa; 
+set sdmxobservationsmetadata; 
+run; 
+%end; 
+%mend; 
+
 /* example Getting Exchange Rates from ECB data provider*/
 %gettimeseries(provider="ECB", tsKey="EXR.A.USD.EUR.SP00.A", metadata=1);
+/* example getting Eurostat */
+%gettimeseries(provider="EUROSTAT", 
+tsKey="NAMA_10_GDP/A.CLV_I10.B1GQ.EU27_2020+EU28+EU15+EA+EA20+EA19+EA12+BE+BG+CZ+DK+DE+EE+IE+EL+ES+FR+HR+IT+CY+LV+LT+LU+HU+MT+NL+AT+PL+PT+RO+SI+SK+FI+SE+IS+LI+NO+CH+UK+BA+ME+MK+AL+RS+TR+XK", 
+metadata=1);
+/*copytimeseries to outlib=work*/
+%copytimeseries(tskey=NAMA_10_GDP/A.CLV_I10.B1GQ,outlib=work,metadata=1);
+
+%gettimeseries(provider="EUROSTAT", 
+tsKey="NAMA_10_GDP/A.CP_MEUR.B1GQ.EU27_2020+EU28+EU15+EA+EA20+EA19+EA12+BE+BG+CZ+DK+DE+EE+IE+EL+ES+FR+HR+IT+CY+LV+LT+LU+HU+MT+NL+AT+PL+PT+RO+SI+SK+FI+SE+IS+LI+NO+CH+UK+BA+ME+MK+AL+RS+TR+XK", 
+metadata=1);
+%copytimeseries(tskey=NAMA_10_GDP/A.CP_MEUR.B1GQ,outlib=work,metadata=1);
+%gettimeseries(provider="EUROSTAT", 
+tsKey="NAMA_10_GDP/A.CLV10_MEUR.B1GQ.EU27_2020+EU28+EU15+EA+EA20+EA19+EA12+BE+BG+CZ+DK+DE+EE+IE+EL+ES+FR+HR+IT+CY+LV+LT+LU+HU+MT+NL+AT+PL+PT+RO+SI+SK+FI+SE+IS+LI+NO+CH+UK+BA+ME+MK+AL+RS+TR+XK", 
+metadata=1);
+%copytimeseries(tskey=NAMA_10_GDP/A.CLV10_MEUR.B1GQ,outlib=work,metadata=1);

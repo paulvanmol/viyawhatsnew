@@ -2,7 +2,6 @@
 http://stats.oecd.org/sdmx-json/data/SNA_TABLE1_SNA93/EA17.B1_GA.C/all?startTime=1995&endTime=2013
 */
 %let homedir=%sysget(HOME); 
-%let homedir=c:/workshop;
 %let path=&homedir/viyawhatsnew; 
 options validvarname=any dlcreatedir;
 libname oecddata base "&path/sdmx_query/oecddata"; 

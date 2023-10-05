@@ -47,7 +47,8 @@
 %init_classpath_update;
 %let homedir=%sysget(HOME); 
 %let path=&homedir;
-%add_to_classpath(&path/viyawhatsnew/sdmx_query/SDMX.jar);
+%let path=c:/workshop;
+%add_to_classpath(&path/viyawhatsnew/sdmx_query/SDMX/lib/SDMX.jar);
 
 /*
 %reset_classpath;

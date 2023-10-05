@@ -1,14 +1,15 @@
 /*Using OECD XML Rest Api: */
 
 *filename oecddata url 'https://stats.oecd.org/restsdmx/sdmx.ashx/GetData/QNA/AUS+AUT.GDP+B1_GE.CUR+VOBARSA.Q/all?startTime=2009-Q2&endTime=2011-Q4&format=compact_v2'; 
-%let homedir=%sysget(HOME); 
+%let homedir=%sysget(HOME);
+%let homedir=c:/workshop;
 %let path=&homedir/viyawhatsnew; 
 %let xmlpath = &path/sdmx_query/;
 
 filename map "&xmlpath.map.txt";
 filename resp "&xmlpath.resp.txt";
 proc http 
-    URL="https://stats.oecd.org/restsdmx/sdmx.ashx/GetData/QNA/AUS+AUT.GDP+B1_GE.CUR+VOBARSA.Q/all?startTime=2009-Q2&endTime=2011-Q4&format=compact_v2" 
+    URL="https://stats.oecd.org/restsdmx/sdmx.ashx/GetData/QNA/BEL+AUT+NLD+DEU+FRA.GDP+B1_GE.CUR+VOBARSA.Q/all?startTime=2007-Q1&endTime=2022-Q4&format=compact_v2" 
     METHOD="GET"
     OUT=resp;
 run;quit;
@@ -45,6 +46,7 @@ PROC SQL;
 			(t1.Series_ORDINAL) AS Series_ORDINAL1,
 			(t1.Obs_ORDINAL),
 			(t1.Obs_TIME),
+			input(compress(t1.Obs_TIME,'-'),yyq6.) as Date format=yyq. ,
 			(t1.Obs_OBS_VALUE),
 			(t5.CompactData_ORDINAL),
 			(t5.Header_ORDINAL),
@@ -74,3 +76,20 @@ PROC SQL;
 QUIT;
 RUN;
 
+proc sgplot data=work.query_for_obs1;
+styleattrs datacontrastcolors=(cx1b9e77
+cxd95f02
+cx7570b3
+cxe7298a
+cx66a61e) datacolors=(cx1b9e77
+cxd95f02
+cx7570b3
+cxe7298a
+cx66a61e); 
+title "Evolution of GDP in EUR by Country (Source OECD)";
+label series_location="Country"; 
+vline date /response=Obs_OBS_VALUE group=series_location name="gdpcurve" curvelabel 
+      lineattrs=(thickness=5);
+yaxis type=log label="GDP in EUR";
+xaxis fitpolicy=thin notimesplit label=" "; 
+quit; 
